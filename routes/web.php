@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AllController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AllController::class, 'home'])->name('home');
 
+Route::get('/admin/user/{user}/edit', [UserController::class, 'edit'])->name('userEdit');
+Route::put('/admin/user/{user}/update', [UserController::class, 'update'])->name('userUpdate');
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $users = User::all();
+    return view('dashboard', compact('users'));
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
