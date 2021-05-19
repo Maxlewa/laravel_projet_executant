@@ -19,6 +19,32 @@
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
+            <!-- Prenom -->
+            <div class="mt-4">
+                <x-label for="prenom" :value="__('Prenom')" />
+
+                <x-input id="prenom" class="block mt-1 w-full" type="text" name="prenom" :value="old('prenom')" required autofocus />
+            </div>
+
+            <!-- Age -->
+            <div class="mt-4">
+                <x-label for="age" :value="__('Age')" />
+
+                <x-input id="age" class="block mt-1 w-full" type="number" name="age" :value="old('age')" required autofocus />
+            </div>
+
+            <!-- Avatar -->
+            <div class="mt-4">
+                <x-label for="avatar" :value="__('Avatar')" />
+
+                <select id="avatar" class="block mt-1 w-full ml-1" name="avatar" :value="old('avatar')">
+                    <option value="1">1</option>
+                    <option value="1">2</option>
+                    <option value="1">3</option>
+                </select>
+                
+            </div>
+
             <!-- Email Address -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Email')" />
