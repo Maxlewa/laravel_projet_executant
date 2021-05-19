@@ -35,12 +35,12 @@
 
             <!-- Avatar -->
             <div class="mt-4">
-                <x-label for="avatar" :value="__('Avatar')" />
+                <x-label for="avatar_id" :value="__('Avatar')" />
 
-                <select id="avatar" class="block mt-1 w-full ml-1" name="avatar" :value="old('avatar')">
-                    <option value="1">1</option>
-                    <option value="1">2</option>
-                    <option value="1">3</option>
+                <select id="avatar_id" class="block mt-1 w-full ml-1" name="avatar_id" :value="old('avatar_id')">
+                    @foreach ($avatars as $avatar)
+                        <option value="{{$avatar->id}}">{{$avatar->nom}}</option>
+                    @endforeach
                 </select>
                 
             </div>

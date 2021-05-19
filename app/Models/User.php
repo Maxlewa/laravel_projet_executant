@@ -15,6 +15,10 @@ class User extends Authenticatable
         return $this->belongsTo(Avatar::class);
     }
 
+    public function role() {
+        return $this->belongsTo(Role::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -25,6 +29,7 @@ class User extends Authenticatable
         'prenom',
         'age',
         'avatar_id',
+        'role_id',
         'email',
         'password',
     ];

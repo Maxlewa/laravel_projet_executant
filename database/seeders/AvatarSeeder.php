@@ -16,13 +16,13 @@ class AvatarSeeder extends Seeder
     {
         DB::table('avatars')->insert([
             [
-                "nom" => ""
+                "nom" => "one"
             ],
             [
-                "nom" => ""
+                "nom" => "two"
             ],
             [
-                "nom" => ""
+                "nom" => "three"
             ],
         ]);
     }
