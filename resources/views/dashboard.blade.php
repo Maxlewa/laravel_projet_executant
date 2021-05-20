@@ -28,17 +28,17 @@
                             <h6 class="card-text ">Rôle : {{ Auth::User()->role->nom }}</h6>
                             <br>
                             <img src={{asset('img/' . Auth::User()->avatar->nom . '.png')}} alt="">
-                            <a href={{route('avatarDownload', Auth::User()->avatar->id)}}>
-                                <button class="bg-green-700">Download</button>
-                            </a>
                             <br>
                             <div class="flex">
                                 <p>
                                     <form action="{{route('logout')}}" method="POST">
                                         @csrf
-                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Déconnection</button>
+                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Log Out</button>
                                     </form>
                                 </p>
+                                <a href={{route('avatarDownload', Auth::User()->avatar->id)}}>
+                                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-2">Download</button>
+                                </a>
                                 @admin
                                     <a href="{{route('userEdit', Auth::id())}}"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">Edit</button></a>
                                 @endadmin
