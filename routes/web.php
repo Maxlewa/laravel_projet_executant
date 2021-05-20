@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AllController;
+use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AllController::class, 'home'])->name('home');
 
+// ___________ USER *
+
+// Edit - Update
+
 Route::get('/admin/user/{user}/edit', [UserController::class, 'edit'])->name('userEdit');
 Route::put('/admin/user/{user}/update', [UserController::class, 'update'])->name('userUpdate');
 
@@ -25,5 +30,9 @@ Route::get('/dashboard', function () {
     $users = User::all();
     return view('dashboard', compact('users'));
 })->middleware(['auth'])->name('dashboard');
+
+// Download
+
+Route::get('/admin/download/{avatar}/avatar', [AvatarController::class, 'download'])->name('avatarDownload');
 
 require __DIR__.'/auth.php';

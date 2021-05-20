@@ -28,6 +28,9 @@
                             <h6 class="card-text ">Rôle : {{ Auth::User()->role->nom }}</h6>
                             <br>
                             <img src={{asset('img/' . Auth::User()->avatar->nom . '.png')}} alt="">
+                            <a href={{route('avatarDownload', Auth::User()->avatar->id)}}>
+                                <button class="bg-green-700">Download</button>
+                            </a>
                             <br>
                             <div class="flex">
                                 <p>

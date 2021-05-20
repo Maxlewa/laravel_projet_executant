@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Avatar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AvatarController extends Controller
 {
@@ -81,5 +82,9 @@ class AvatarController extends Controller
     public function destroy(Avatar $avatar)
     {
         //
+    }
+
+    public function download(Avatar $avatar) {
+        return Storage::disk('public')->download('img/' . $avatar->nom . '.png');
     }
 }
