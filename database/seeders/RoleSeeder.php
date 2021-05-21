@@ -20,7 +20,10 @@ class RoleSeeder extends Seeder
             ],
             [
                 "nom" => "utilisateur"
-            ]
+            ],
+            [
+                "nom" => "webmaster"
+            ],
         ]);
     }
 }
