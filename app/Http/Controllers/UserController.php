@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    public function index() {
+        $users = User::all();
+        return view('admin.user.userIndex', compact('users'));
+    }
+
     public function edit(User $user){
         $avatars = Avatar::all();
         return view('admin.user.userEdit', compact('user', 'avatars')); 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AllController;
 use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,10 @@ Route::get('/', [AllController::class, 'home'])->name('home');
 
 // ___________ USER *
 
+// Index
+
+Route::get('/admin/user', [UserController::class, 'index'])->name('userIndex');
+
 // Edit - Update
 
 Route::get('/admin/user/{user}/edit', [UserController::class, 'edit'])->name('userEdit');
@@ -31,8 +36,14 @@ Route::get('/dashboard', function () {
     return view('dashboard', compact('users'));
 })->middleware(['auth'])->name('dashboard');
 
+// ___________ AVATAR *
+
 // Download
 
 Route::get('/admin/download/{avatar}/avatar', [AvatarController::class, 'download'])->name('avatarDownload');
+
+// ___________ BLOG *
+
+Route::resource('/admin/blog', BlogController::class);
 
 require __DIR__.'/auth.php';
