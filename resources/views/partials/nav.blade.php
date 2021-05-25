@@ -64,7 +64,7 @@
                             fill="currentColor" />
                     </svg>
                 </span>
-                <a href="">
+                <a href="{{route('avatarIndex')}}">
                 {{-- <a href="{{ route('avatar.index') }}"> --}}
 
                     <span class="ml-2">Avatars</span>

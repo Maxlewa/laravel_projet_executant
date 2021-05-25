@@ -38,6 +38,15 @@ Route::get('/dashboard', function () {
 
 // ___________ AVATAR *
 
+// Index
+
+Route::get('/admin/avatar', [AvatarController::class, 'index'])->name('avatarIndex');
+
+// Create - Store
+
+// Route::get('/admin/avatar', [AvatarController::class, 'create'])->name('avatarCreate');
+Route::post('/admin/store/avatar', [AvatarController::class, 'store'])->name('avatarStore');
+
 // Download
 
 Route::get('/admin/download/{avatar}/avatar', [AvatarController::class, 'download'])->name('avatarDownload');

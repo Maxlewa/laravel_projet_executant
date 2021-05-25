@@ -15,7 +15,8 @@ class AvatarController extends Controller
      */
     public function index()
     {
-        //
+        $avatars = Avatar::all();
+        return view('admin.avatar.avatarIndex', compact('avatars'));
     }
 
     /**
@@ -36,7 +37,29 @@ class AvatarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "nom" => ["required"],
+        ]);
+
+        $avatar = new Avatar();
+        $avatar->nom = $request->nom;
+
+        if ($request->nom) {
+            $request->file('nom')->storePublicly('img/','public');
+            $avatar->nom = $request->file('nom')->hashName();
+            $avatar2 = explode('.' , $avatar->nom);
+            $avatar->nom = $avatar2[0];
+
+        } else {
+            $fichierURL = file_get_contents($request->srcURL);
+            $lien = $request->srcURL;
+            $token = substr($lien, strrpos($lien, '/') + 1);
+            Storage::disk('public')->put('img/'.$token , $fichierURL);
+            $avatar->src = $token;
+        }
+              
+        $avatar->save();
+        return redirect()->route('dashboard')->with('success', "L'image a bien été ajoutée");
     }
 
     /**
