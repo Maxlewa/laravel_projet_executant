@@ -28,6 +28,17 @@
                 <x-input id="prenom" class="block mt-1 w-full" type="text" name="prenom" value="{{$user->prenom}}"  required autofocus />
             </div>
 
+            <!-- Rôle -->
+            <div class="mt-4">
+                <x-label for="role_id" :value="__('Rôle')" />
+
+                <select id="role_id" class="block mt-1 w-full ml-1" name="role_id" :value="old('role_id')">
+                    @foreach ($roles as $role)
+                    <option value="{{$role->id}}">{{$role->nom}}</option>
+                    @endforeach
+                </select>
+            </div>
+
 
             <!-- Age -->
             <div class="mt-4">

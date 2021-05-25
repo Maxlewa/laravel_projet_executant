@@ -17,7 +17,8 @@ class UserController extends Controller
 
     public function edit(User $user){
         $avatars = Avatar::all();
-        return view('admin.user.userEdit', compact('user', 'avatars')); 
+        $roles = Role::all();
+        return view('admin.user.userEdit', compact('user', 'avatars', 'roles')); 
     }
 
     public function update(User $user, Request $request) {
