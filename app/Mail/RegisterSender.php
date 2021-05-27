@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class MailSender extends Mailable
+class RegisterSender extends Mailable
 {
     use Queueable, SerializesModels;
     public $mail;
@@ -28,6 +28,6 @@ class MailSender extends Mailable
      */
     public function build()
     {
-        return $this->from('maxence@molengeek.com')->markdown('mail.welcome')->subject('Newsletter');
+        return $this->from('maxence@molengeek.com')->markdown('mail.register')->subject('Bienvenue - vos infos');
     }
 }

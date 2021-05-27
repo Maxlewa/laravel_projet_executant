@@ -19,6 +19,6 @@ class NewsletterController extends Controller
 
         Mail::to($request->email)->send(new MailSender($request));
 
-        return view('home');
+        return redirect()->back();
     }
 }
