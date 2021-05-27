@@ -3,6 +3,7 @@
 use App\Http\Controllers\AllController;
 use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -54,5 +55,9 @@ Route::get('/admin/download/{avatar}/avatar', [AvatarController::class, 'downloa
 // ___________ BLOG *
 
 Route::resource('/admin/blog', BlogController::class);
+
+// ___________ NEWSLETTER *
+
+Route::post('/newsletter/store', [NewsletterController::class, 'store'])->name('newsletterStore');
 
 require __DIR__.'/auth.php';
